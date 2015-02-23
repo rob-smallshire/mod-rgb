@@ -20,7 +20,7 @@ import sys
 from docopt import docopt, DocoptExit
 from smbus import SMBus
 
-from mod_rgb import ensure_mod_rgb_device, change_address 
+from mod_rgb.control import ensure_mod_rgb_device, change_address 
 
 def main(args=None):
     if args is None:

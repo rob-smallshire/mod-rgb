@@ -17,7 +17,7 @@ import sys
 from docopt import docopt, DocoptExit
 from smbus import SMBus
 
-from mod_rgb import ensure_mod_rgb_device, start_pwm, set_rgb_color 
+from mod_rgb.control import ensure_mod_rgb_device, start_pwm, set_rgb_color 
 
 def main(args=None):
     if args is None:
