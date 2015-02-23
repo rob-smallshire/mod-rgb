@@ -3,8 +3,8 @@
 """Set MOD-RGB output colour.
 
 Usage:
-  set_rgb.py <address> <red> <green> <blue> [--device=<dev-num>]
-  set_rgb.py -h | --help
+  set-mod-rgb <address> <red> <green> <blue> [--device=<dev-num>]
+  set-mod-rgb -h | --help
 
 Options:
   --device=<dev-num>  Device number [default: 1].

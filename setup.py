@@ -88,8 +88,9 @@ setup(
     # pip to create the appropriate form of executable for the target platform.
     entry_points={
         'console_scripts': [
+            'find-mod-rgb=mod_rgb.find_mod_rgb:main',
             'change-mod-rgb-address=mod_rgb.change_mod_rgb_address:main',
-            'set-rgb=mod_rgb.set_rgb:main',
+            'set-mod-rgb=mod_rgb.set_rgb:main',
         ],
     },
 )
