@@ -46,7 +46,14 @@ def main(args=None):
         print(DocoptExit.usage, file=sys.stderr)
         return os.EX_USAGE
 
-    bus = SMBus(device_num)
+    try:
+        bus = SMBus(device_num)
+    except OverflowError as e:
+        print("Could not attach to I2C/SMBus. Device number {!r} is invalid".format(device_num), file=sys.stderr)
+        return os.EX_DATAERR
+    except IOError as e:
+        print("Could not attach to I2C/SMBus. I/O error:", e, file=sys.stderr)
+        return os.EX_IOERR        
 
     try:
         start_pwm(bus, address)

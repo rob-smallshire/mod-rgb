@@ -44,7 +44,14 @@ def main(args=None):
     prompt = not args['--quiet']
     act = not args['--no-action']       
 
-    bus = SMBus(device_num)
+    try:
+        bus = SMBus(device_num)
+    except OverflowError as e:
+        print("Could not attach to I2C/SMBus. Device number {!r} is invalid".format(device_num), file=sys.stderr)
+        return os.EX_DATAERR
+    except IOError as e:
+        print("Could not attach to I2C/SMBus. I/O error:", e, file=sys.stderr)
+        return os.EX_IOERR        
 
     try:
         ensure_mod_rgb_device(bus, old_address)
