@@ -19,6 +19,10 @@ def start_pwm(bus, address):
     Args:
         bus: An SMBus instance.
         address: The address of a MOD-RGB device.
+
+    Raises:
+        AddressRangeError: Of the address is out of range.
+        IOError: Communication with the device could not be established.
     """
     if not (0 <= address < 128):
         raise AddressRangeError("address {} ({}) out of range 0-127".format(address, hex(address)))
@@ -32,6 +36,10 @@ def stop_pwm(bus, address):
     Args:
         bus: An SMBus instance.
         address: The address of a MOD-RGB device.
+
+    Raises:
+        AddressRangeError: If the address is out of range.
+        IOError: Communication with the device could not be established.
     """
     if not (0 <= address < 128):
         raise AddressRangeError("address {} ({}) out of range 0-127".format(address, hex(address)))
